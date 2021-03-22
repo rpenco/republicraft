@@ -1,0 +1,134 @@
+version: '3.5'
+
+services:
+
+  # ---------------------------------------------------
+  #
+  # HOMEPAGE, BLOG AND FORUM
+  #
+  # ---------------------------------------------------
+  wordpress:
+    image: wordpress:php7.4
+    restart: always
+    container_name: wordpress
+    ports:
+      - 127.0.0.1:8081:80
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+      WORDPRESS_DB_NAME: wordpress
+      WP_MEMORY_LIMIT: 128M
+    depends_on:
+      - mariadb
+    volumes:
+      - /data/opt/wordpress:/var/www/html
+    networks:
+      - frontnet
+      - backnet
+
+  # ---------------------------------------------------
+  #
+  # SHARED DATABASE FOR WORPRESS AND MINECRAFT PLUGINS
+  #
+  # ---------------------------------------------------
+
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+    volumes:
+      - /data/opt/mariadb:/var/lib/mysql
+    networks:
+      - backnet
+
+  adminer:
+    image: adminer:4.7
+    restart: always
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - 127.0.0.1:8080:8080
+    networks:
+      - frontnet
+      - backnet
+
+  # ---------------------------------------------------
+  #
+  # MINECRAFT PART WITH ONE WORLD
+  #
+  # ---------------------------------------------------
+
+  velocity:
+    image: registry:5005/republicraftfr/republicraft/velocity:1.0.7-204
+    container_name: velocity
+    environment:
+      - JVM_OPTS=-Xms512M -Xmx2G -XX:+UseConcMarkSweepGC
+    restart: always
+    ports:
+      - 0.0.0.0:25565:25577
+    volumes:
+      - /data/opt/velocity:/server
+    depends_on:
+      - mariadb
+    networks:
+      - backnet
+
+  lobby1:
+    image: registry:5005/republicraftfr/republicraft/papermc:1.15.2-183
+    container_name: lobby1
+    restart: always
+    environment:
+      - JVM_OPTS=-Xms512M -Xmx3G -XX:+UseConcMarkSweepGC
+    ports:
+      - 25565
+      - 127.0.0.1:8122:8123
+    volumes:
+      - /data/opt/paper/lobby/1:/server
+    depends_on:
+      - mariadb
+    networks:
+      - backnet
+
+  resources1:
+    image: registry:5005/republicraftfr/republicraft/papermc:1.15.2-183
+    container_name: resources1
+    restart: always
+    environment:
+      - JVM_OPTS=-Xms1G -Xmx4G -XX:+UseConcMarkSweepGC
+    depends_on:
+      - mariadb
+    ports:
+      - 25565
+      - 127.0.0.1:8124:8123
+    volumes:
+      - /data/opt/paper/resources/1:/server
+    networks:
+      - backnet
+
+  build1:
+    image: registry:5005/republicraftfr/republicraft/papermc:1.15.2-183
+    container_name: build1
+    restart: always
+    environment:
+      - JVM_OPTS=-Xms1G -Xmx6G -XX:+UseConcMarkSweepGC
+    ports:
+      - 25565
+      - 127.0.0.1:8123:8123
+    depends_on:
+      - mariadb
+    volumes:
+      - /data/opt/paper/build/1:/server
+    networks:
+      - backnet
+
+networks:
+  frontnet:
+    name: frontnet
+    driver: bridge
+  backnet:
+    name: backnet
+    driver: bridge

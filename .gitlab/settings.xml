@@ -1,0 +1,11 @@
+<!--Gitlab CI/CD Settings-->
+<!--Create a Personal Access Token and use your username-->
+<settings>
+    <servers>
+        <server>
+            <id>registry.gitlab.com</id>
+            <username>${env.REGISTRY_USERNAME}</username>
+            <password>${env.REGISTRY_PASSWORD}</password>
+        </server>
+    </servers>
+</settings>

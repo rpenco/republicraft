@@ -1,0 +1,53 @@
+image: maven:3.6.3-jdk-8-slim
+
+variables:
+  MAVEN_CLI_OPTS: "--no-transfer-progress -s .gitlab/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+
+before_script:
+  - mvn --version
+
+cache:
+  paths:
+    - .m2/repository/
+
+services:
+  - docker:dind
+
+docker velocity:
+  script:
+    - mvn $MAVEN_CLI_OPTS -pl :docker-velocity compile dockerfile:build dockerfile:tag dockerfile:push $MAVEN_OPTS
+  only:
+    - master
+
+docker paper:
+  script:
+    - mvn $MAVEN_CLI_OPTS -pl :docker-papermc compile dockerfile:build dockerfile:tag dockerfile:push $MAVEN_OPTS
+  only:
+    - master
+
+minecraft plugins:
+  script:
+    - mvn $MAVEN_CLI_OPTS -pl :plugins install -amd $MAVEN_OPTS
+  artifacts:
+    paths:
+      - plugins/velocity/velocity-republicraft/target/Republicraft-Velocity-*.jar
+      - plugins/papermc/papermc-republicraft/target/Republicraft-Paper-*.jar
+      - plugins/papermc/papermc-republicraft-shops/target/Republicraft-Shops-Paper-*.jar
+      - plugins/papermc/papermc-republicraft-resources/target/Republicraft-Resources-Paper-*.jar
+    expire_in: 1 week
+  only:
+    - master
+
+wordpress plugins:
+  script:
+    - mvn $MAVEN_CLI_OPTS -pl :wp-plugins install -amd $MAVEN_OPTS
+  artifacts:
+    paths:
+      - wp-plugins/wp-republicraft-minestatus/target/wp-republicraft-minestatus-*.zip
+      - wp-plugins/wp-republicraft-votes/target/wp-republicraft-votes-*.zip
+    expire_in: 1 week
+  only:
+    - master

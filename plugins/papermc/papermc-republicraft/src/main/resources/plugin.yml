@@ -1,0 +1,21 @@
+name: Republicraft
+main: fr.republicraft.papermc.world.RepublicraftPlugin
+version: 0.0.1
+api-version: 1.15
+author: rpenco
+
+softdepend: [HolographicDisplays, Vault, LuckPerms, GriefPrevention]
+load: POSTWORLD
+
+commands:
+  portal:
+    description: Retourner au point de spawn du monde
+    usage: /portal
+  book:
+    description: Obtiens les livres d'aides
+    usage: /book
+  spawn:
+    description: Retourner au point de spawn du monde
+    usage: /spawn
+
+

@@ -1,0 +1,39 @@
+<?php $randomPlayerList = rand(0, 10000); ?>
+<?php $randomPlugins = rand(0, 10000); ?>
+<?php echo $args['before_widget']; ?>
+<?php echo $args['before_title'] . $instance['title'] . $args['after_title']; ?>
+<p>
+    Status: <span style="color:green;font-weight:bold">En ligne</span><br>
+
+    <?php if (isset($instance['show_host']) && $instance['show_host'] == 'on'): ?>
+        Hôte: <strong><?php echo $status->get_address(); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_port']) && $instance['show_port']): ?>
+        Port: <strong><?php echo $status->get_port(); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_players_online']) && $instance['show_players_online']): ?>
+        Joueurs en ligne: <strong><?php echo $status->get_current_players(); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_players_max']) && $instance['show_players_max']): ?>
+        Joueurs max: <strong><?php echo $status->get_max_players(); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_motd']) && $instance['show_motd']): ?>
+        Description: <strong><?php echo MotdFormat::format($status->get_motd()); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_version']) && $instance['show_version']): ?>
+        Version: <strong><?php echo $status->get_version(); ?></strong><br>
+    <?php endif; ?>
+
+    <?php if (isset($instance['show_latency']) && $instance['show_latency'] == 'on'): ?>
+        Latence: <strong><?php echo $status->get_latency(); ?>ms</strong><br>
+    <?php endif; ?>
+
+
+</p>
+
+<?php echo $args['after_widget']; ?>

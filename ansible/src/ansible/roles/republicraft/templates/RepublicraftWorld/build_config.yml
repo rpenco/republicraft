@@ -1,0 +1,48 @@
+world: world
+
+connection:
+  host: mariadb
+  port: 3306
+  database: republicraft
+  username: root
+  password: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+
+spawn:
+  location: 97.4,67.0,1547.4
+  yaw: -90
+
+holograms:
+  - location: 104,69,1540
+    lines:
+      - "§fBienvenue sur le monde §6Construction§f"
+      - "§bRespecte le paysage§f, mine dans le monde §2Ressources§f"
+      - "§f- Ce monde est §chostile§f, attention aux §cmonstres§f"
+      - "§f- Consulte la carte sur §bhttps://map.republicraft.fr§f"
+
+  - location: 104,69,1554
+    lines:
+      - "§9============ GUIDE ============§r"
+      - "§f- Construis tes projets dans ce monde"
+      - "§f- Choisis un §9emplacement libre§f pour tes projets"
+      - "§f- Achète des blocs avec §b/buyclaimblocs§f puis"
+      - "§f- Utilise une §6pelle en or§f pour §2posséder§f des terrains"
+
+portals:
+  - id: lobby
+    server: lobby
+    world: world
+    location: 1332.0,65.0,921.5
+    entity:
+      type: villager
+      name: "Lobby"
+      yaw: 45.0
+      location: 100.5,67.0,1544.5
+  - id: resources
+    server: ressources
+    world: world
+    location: 110.0,63.0,1642.0
+    entity:
+      type: villager
+      name: "Monde Ressources"
+      yaw: 106.0
+      location: 100.5,67.0,1550.5

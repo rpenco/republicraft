@@ -1,0 +1,13 @@
+name: RepublicraftShops
+main: fr.republicraft.papermc.shops.ShopsPlugin
+version: 0.0.1
+api-version: 1.15
+author: rpenco
+
+depend: [Republicraft]
+
+commands:
+  money:
+    description: Money commands. /money tp
+    usage: /<command> [command]
+

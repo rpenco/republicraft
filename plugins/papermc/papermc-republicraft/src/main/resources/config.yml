@@ -1,0 +1,100 @@
+world: world
+
+connection:
+  host: mariadb
+  port: 3306
+  database: republicraft
+  username: root
+  password: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+
+spawn:
+  location: 1332.0,65.0,921.5
+  yaw: -90
+
+holograms:
+  - location: 1336.7,66.6,918.0
+    lines:
+      - "\u00a7fBienvenue sur\u00a7c R\u00e9publicraft"
+      - "\u00a79R\u00e9publicraft recrute!u00a7r"
+      - "\u00a76Rejoins-nous\u00a7f dans cette \u00a72nouvelle aventure\u00a7r"
+      - "\u00a76Contacte-nous\u00a7b en jeu\u00a7f ou sur \u00a7b./discord\u00a7r"
+      - "\u00a7fToutes les r\u00f4les sont disponibles!"
+
+  - location: 1369.4,66.5,918.0
+    lines:
+      - "\u00a79============ GUIDE ============\u00a7r"
+      - "\u00a7fPortails disponibles:"
+      - "\u00a7f- un monde \u00a76Construction\u00a7r"
+      - "\u00a7f- un monde \u00a72Ressources\u00a7f"
+      -
+  - location: 108.6,74.5,1631.7
+    lines:
+      - "\u00a79========= R\u00e9publicraft recrute! =========\u00a7r"
+      - "\u00a76Rejoins-nous\u00a7f dans cette \u00a72nouvelle aventure\u00a7r"
+      - "\u00a76Contacte-nous\u00a7b en jeu\u00a7f ou sur \u00a7b./discord\u00a7r"
+      - "\u00a7fToutes les r\u00f4les sont disponibles!"
+
+  - location: 38.4,74.5,536.0
+    lines:
+      - "\u00a7fBienvenue sur\u00a7c R\u00e9publicraft"
+      - "\u00a7fCe jeune serveur est\u00a76 en construction"
+
+  - location: 31.4,74.5,528.0
+    lines:
+      - "\u00a79============ GUIDE ============\u00a7r"
+      - "\u00a7fPortails disponibles:"
+      - "\u00a7f- un monde \u00a76Construction\u00a7r"
+      - "\u00a7f- un monde \u00a72Ressources\u00a7f"
+      - "Consultes la carte sur  https://map.republicraft.fr"
+
+  - location: 38.4,74.5,521.5
+    lines:
+      - "\u00a79========= R\u00e9publicraft recrute! =========\u00a7r"
+      - "\u00a76Rejoins-nous\u00a7f dans cette \u00a72nouvelle aventure\u00a7r"
+      - "\u00a76Contacte-nous\u00a7b en jeu\u00a7f ou sur \u00a7b./discord\u00a7r"
+      - "\u00a7fToutes les r\u00f4les sont disponibles!"
+
+portals:
+  - id: build
+    server: build
+    world: world
+    location: 1397.3,65.0,921.5
+    entity:
+      type: villager
+      name: "Monde Construction"
+      yaw: 90.0
+
+  - id: resources
+    server: resources
+    world: world
+    location: 1386.4,65.0,910.6
+    entity:
+      type: villager
+      name: "Monde Ressources"
+      yaw: 0.0
+
+  - id: build2
+    server: build
+    world: world
+    location: 80.4,73.0,562.47
+    entity:
+      type: villager
+      name: "Monde Construction"
+      yaw: 180.0
+
+  - id: resources2
+    server: resources
+    world: world
+    location: 57.57,73.0,563.6
+    entity:
+      type: villager
+      name: "Monde Ressources"
+      yaw: 180.0
+
+  - id: the_end_build
+    server: build
+    word: the_end
+    entity:
+      type: portal
+      location: 1397.4,65.0,922.6
+      name: "The End (Ressources)"

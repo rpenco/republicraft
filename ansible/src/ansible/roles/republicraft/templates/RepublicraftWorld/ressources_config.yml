@@ -1,0 +1,27 @@
+connection:
+  host: mariadb
+  port: 3306
+  database: republicraft
+  username: root
+  password: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+
+spawn:
+  world: world
+  location: 110.0,63.0,1642.0
+  yaw: 0
+
+holograms:
+  - location: 121.0,65,1648.0
+    lines:
+      - "§fBienvenue sur le monde §2Ressources§f"
+      - "§9- Mine librement §fmais §cne stock rien §fdans ce monde!"
+      - "§f- Ce monde est §chostile§f, attention aux §cmonstres§f"
+      - "§f- Ce monde est §créinitialisé§f tous les debut de mois§f"
+
+  - location: 118,65,1655
+    lines:
+      - "§9============== GUIDE ==============§r"
+      - "§9- Mine librement §fmais §cne stock rien §fdans ce monde!"
+      - "§f- Le §cgrief/vol§f est §2autorisé§f dans ce monde"
+      - "§f- Le §cPvP§f est §2autorisé§f dans ce monde"
+      - "§f- Change de monde avec §b/server§f"

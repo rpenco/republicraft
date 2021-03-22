@@ -1,0 +1,13 @@
+players:
+  initial_amount: 20
+
+shops:
+  - id: my_shop_1
+    world: world
+    location: 1386.4,64.0,921.6
+    name: Maître des ventes
+    entity:
+      type: villager
+      name: "Maître des ventes"
+      yaw: 90.0
+

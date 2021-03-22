@@ -1,0 +1,52 @@
+server_connect_timeout: 5000
+listeners:
+- query_port: 25577
+  motd: |-
+    §3Républicraft§r - §cEn construction §r-§f Vanilla§r │ §21.15.2§r
+    §6Demandez votre accès: §rhttps://discord.gg/Abcdefg
+  tab_list: GLOBAL_PING
+  query_enabled: false
+  forced_hosts:
+    pvp.md-5.net: pvp
+  ping_passthrough: true
+  bind_local_address: true
+  host: bungeecord:25577
+  max_players: 300
+  tab_size: 60
+  force_default_server: false
+  proxy_protocol: false
+  priorities:
+  - lobby
+remote_ping_cache: -1
+network_compression_threshold: 256
+permissions:
+  default:
+  - bungeecord.command.server
+  - bungeecord.command.list
+  admin:
+  - bungeecord.command.alert
+  - bungeecord.command.end
+  - bungeecord.command.ip
+  - bungeecord.command.reload
+log_pings: true
+connection_throttle_limit: 3
+prevent_proxy_connections: false
+timeout: 30000
+player_limit: -1
+ip_forward: true
+groups:
+  md_5:
+  - admin
+remote_ping_timeout: 5000
+connection_throttle: 4000
+log_commands: true
+stats: 92bb097b-430a-4481-8d74-4e4d4e66204d
+online_mode: true
+forge_support: false
+disabled_commands:
+- disabledcommandhere
+servers:
+  lobby:
+    motd: Lobby Server
+    address: 172.20.0.3:25565
+    restricted: false

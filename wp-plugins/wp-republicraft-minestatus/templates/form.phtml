@@ -1,0 +1,143 @@
+<table width="100%">
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>General options</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td width="20%">Title</td>
+        <td>
+            <input class="widefat" id="miners_title" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $instance['title']; ?>">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td width="20%">Host</td>
+        <td>
+            <input class="widefat" id="miners_host" name="<?php echo $this->get_field_name('host'); ?>" type="text" value="<?php echo $instance['host']; ?>">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td width="20%">Port</td>
+        <td>
+            <input class="widefat" id="miners_port" name="<?php echo $this->get_field_name('port'); ?>" type="text" value="<?php echo $instance['port']; ?>">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+</table>
+
+<table width="100%">
+    <tr>
+        <td colspan="2"><strong>Display options</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show status</td>
+        <td style="text-align:right;">
+            <input id="miners_show_status" name="<?php echo $this->get_field_name('show_status'); ?>" type="checkbox" value="on" <?php echo ($instance['show_status'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show latency</td>
+        <td style="text-align:right;">
+            <input id="miners_show_latency" name="<?php echo $this->get_field_name('show_latency'); ?>" type="checkbox" value="on" <?php echo ($instance['show_latency'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show players max</td>
+        <td style="text-align:right;">
+            <input id="miners_show_players_max" name="<?php echo $this->get_field_name('show_players_max'); ?>" type="checkbox" value="on" <?php echo ($instance['show_players_max'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show players online</td>
+        <td style="text-align:right;">
+            <input id="miners_show_players_online" name="<?php echo $this->get_field_name('show_players_online'); ?>" type="checkbox" value="on" <?php echo ($instance['show_players_online'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show host</td>
+        <td style="text-align:right;">
+            <input id="miners_show_host" name="<?php echo $this->get_field_name('show_host'); ?>" type="checkbox" value="on" <?php echo ($instance['show_host'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show IP</td>
+        <td style="text-align:right;">
+            <input id="miners_show_ip" name="<?php echo $this->get_field_name('show_ip'); ?>" type="checkbox" value="on" <?php echo ($instance['show_ip'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show port</td>
+        <td style="text-align:right;">
+            <input id="miners_show_port" name="<?php echo $this->get_field_name('show_port'); ?>" type="checkbox" value="on" <?php echo ($instance['show_port'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show version</td>
+        <td style="text-align:right;">
+            <input id="miners_show_version" name="<?php echo $this->get_field_name('show_version'); ?>" type="checkbox" value="on" <?php echo ($instance['show_version'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td>Show protocol</td>
+        <td style="text-align:right;">
+            <input id="miners_show_motd" name="<?php echo $this->get_field_name('show_motd'); ?>" type="checkbox" value="on" <?php echo ($instance['show_motd'] == 'on') ? 'checked="checked"' : ''; ?>>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="miners"></td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+</table>
+
+<style>
+    hr.miners {
+        border:0;
+        color:#D7D7D7;
+        background:#D7D7D7;
+        height:1px;
+    }
+</style>

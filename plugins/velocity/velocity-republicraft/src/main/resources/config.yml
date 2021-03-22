@@ -1,0 +1,35 @@
+connection:
+  host: mariadb
+  port: 3306
+  database: republicraft
+  username: root
+  password: 9F00DC68980C382F49431CD22AB5FE2B2CD87C00
+
+metrics:
+  host: 62.210.82.109
+  port: 12202
+
+discord:
+  enabled: true
+  token: 
+  channelId: 690717093326487562
+  link: https://discord.gg/Abcdefg
+
+jail:
+  enabled: true
+  server: lobby
+  world: world
+  jailLocation: 1360.0,63.1,937.5
+  freeLocation: 1365.4,64.0,934.0
+
+votes:
+  enabled: true
+  providers:
+    serverprive:
+      name: serveur-prive.net
+      enabled: true
+      publicUrl: https://serveur-prive.net/minecraft/republicraft-3458/vote
+      apiUrl: https://serveur-prive.net/api
+      token: 
+      moneyEarned: 0.0
+      refreshInterval: 120

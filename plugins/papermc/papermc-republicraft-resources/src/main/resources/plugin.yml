@@ -1,0 +1,8 @@
+name: RepublicraftResources
+main: fr.republicraft.papermc.resources.ResourcesPlugin
+version: 0.0.1
+api-version: 1.15
+author: rpenco
+
+depend: [Republicraft]
+

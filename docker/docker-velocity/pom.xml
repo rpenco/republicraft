@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>docker</artifactId>
+        <groupId>fr.republicraft</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>docker-velocity</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <velocity-version>1.0.8-SNAPSHOT</velocity-version>
+        <velocity-build>210</velocity-build>
+        <velocity-md5>75f9a985ad25ccdf6c07dc26966d87eb</velocity-md5>
+    </properties>
+    <build>
+        <plugins>
+            <!-- Download right velocity version -->
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>download-velocity</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://ci.velocitypowered.com/job/velocity/${velocity-build}/artifact/proxy/build/libs/velocity-proxy-${velocity-version}-all.jar</url>
+                            <unpack>false</unpack>
+                            <outputDirectory>target</outputDirectory>
+                            <md5>${velocity-md5}</md5>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Create Docker image -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>tag</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                    <repository>${docker-registry}/velocity</repository>
+                    <tag>${velocity-version}-${velocity-build}</tag>
+                    <buildArgs>
+                        <VELOCITY_VERSION>${velocity-version}</VELOCITY_VERSION>
+                        <VELOCITY_BUILD>${velocity-build}</VELOCITY_BUILD>
+                        <VELOCITY_MD5>${velocity-md5}</VELOCITY_MD5>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
